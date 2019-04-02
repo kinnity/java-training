@@ -1,5 +1,7 @@
 package by.epam.training.unit02;
 
+import java.util.Scanner;
+
 public class Unit02 {
     public static void allTasks() {
         task01();
@@ -44,11 +46,35 @@ public class Unit02 {
         task40();
 
     }
+    private static double scannerDouble(){
+        Scanner in = new Scanner(System.in);
+        double number;
+        System.out.print("Введите число: ");
+        while (!in.hasNextDouble()) {
+            in.next();
+            System.out.println("Некорректный ввод!");
+            System.out.print("Введите число: ");
+        }
+        number = in.nextDouble();
+        return number;
+    }
+    private static int scannerInt(){
+        Scanner in = new Scanner(System.in);
+        int number;
+        System.out.print("Введите число: ");
+        while (!in.hasNextInt()) {
+            in.next();
+            System.out.println("Некорректный ввод!");
+            System.out.print("Введите число: ");
+        }
+        number = in.nextInt();
+        return number;
+    }
     private static void task01(){
         System.out.println("1. Даны два действительных числа х и у. Вычислить их сумму, разность, произведение и частное.");
 
-        double a = 5.3;
-        double b = 1.2;
+        double a = scannerDouble();
+        double b = scannerDouble();
 
         double sum = a + b;
         System.out.println("Сумма чисел " + a + " и " + b + " равна " + sum);
@@ -67,11 +93,10 @@ public class Unit02 {
     private static void task02(){
         System.out.println("2. Найдите значение функции: с = 3 + а.");
 
-        double a = 1.3;
+        double a = scannerDouble();
 
         double c = 3 + a;
         System.out.println("При а = " + a + " значение функции с = " + c);
-
         System.out.println();
     }
     private static void task03(){
@@ -125,9 +150,9 @@ public class Unit02 {
     private static void task07(){
         System.out.println("7. Дан прямоугольник, ширина которого в два раза меньше длины. Найти площадь прямоугольника");
 
-        double length = 10;
-        double width = length / 2;
+        double length = scannerDouble();
 
+        double width = length / 2;
         double area = length * width;
         System.out.println("При длине = " + length + " ширина = " + width + " и площадь прямоугольника равна " + area);
 
@@ -524,6 +549,8 @@ public class Unit02 {
 
         char currentCharacter = 'A';
 
+
+
         int asciiCurrent = (int) currentCharacter;
 
         int asciiPrev = asciiCurrent - 1;
@@ -793,8 +820,8 @@ public class Unit02 {
     private static void task38(){
         System.out.println("38. Для данных областей составить линейную программу, которая печатает true, если точка с координатами (х, у) принадлежит закрашенной области, и false — в противном случае");
 
-        int x = 3;
-        int y = -3;
+        int x = scannerInt();
+        int y = scannerInt();
 
         // задание 1
         if (y + Math.abs(x) <= 4 && y >= 0){
