@@ -1,8 +1,8 @@
 package by.epam.training.unit05;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+        import java.io.File;
+        import java.io.FileNotFoundException;
+        import java.util.Scanner;
 
 public class Task2 {
     public static void task2() throws FileNotFoundException {
@@ -33,13 +33,4 @@ public class Task2 {
         System.out.println(" -----------");
     }
 
-    public static void generateNumbers(){
-        //Целое число в интервале [0; +1000]
-        int a;
-        for (int i = 0; i < 70; i++) {
-            a = (int) (Math.random() * (1000 + 1));
-            System.out.print(a + " ");
-        }
-        System.out.println();
-    }
 }

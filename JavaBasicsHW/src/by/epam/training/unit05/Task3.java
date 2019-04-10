@@ -3,7 +3,7 @@ package by.epam.training.unit05;
 import java.util.Scanner;
 
 public class Task3 {
-    public static void task3(){
+    public static void task3() {
         System.out.println("3. Посчитать общее количество дней во всех месяцах между двумя датами");
 
         int totalDays = 0;
@@ -16,10 +16,9 @@ public class Task3 {
         int monthEnd = scanIntMonth();
         int yearEnd = scanIntYear();
 
-        if ((yearEnd < yearStart) || (yearEnd == yearStart && monthEnd < monthStart)){
+        if ((yearEnd < yearStart) || (yearEnd == yearStart && monthEnd < monthStart)) {
             System.out.println("Конечная дата должна быть больше начальной!");
-        }
-        else {
+        } else {
 
             if ((yearEnd - yearStart) >= 1) {
                 for (int i = yearStart + 1; i < yearEnd; i++) {
@@ -35,8 +34,7 @@ public class Task3 {
                 for (int i = monthStart; i <= monthEnd; i++) {
                     totalDays += returnDaysInMonth(i, yearStart);
                 }
-            }
-            else {
+            } else {
                 for (int i = monthStart; i <= 12; i++) {
                     totalDays += returnDaysInMonth(i, yearStart);
                 }
@@ -51,7 +49,7 @@ public class Task3 {
 
     }
 
-    private static int returnDaysInMonth (int monthNumber, int year){
+    private static int returnDaysInMonth(int monthNumber, int year) {
         int daysInMonth = 0;
 
         switch (monthNumber) {
@@ -61,8 +59,7 @@ public class Task3 {
             case 2:
                 if (isLeapYear(year)) {
                     daysInMonth = 29;
-                }
-                else {
+                } else {
                     daysInMonth = 28;
                 }
                 break;
@@ -101,26 +98,23 @@ public class Task3 {
         }
         return daysInMonth;
     }
-    private static boolean isLeapYear(int year){
-        if ((year % 4 == 0) && (year % 100 == 0) && (year % 400 == 0) || (year % 4 == 0) && (year % 100 != 0)){
+
+    private static boolean isLeapYear(int year) {
+        if ((year % 4 == 0) && (year % 100 == 0) && (year % 400 == 0) || (year % 4 == 0) && (year % 100 != 0)) {
             return true;
-        }
-        else {
-            if ((year % 4 == 0) && (year % 100 == 0)) {
-                return false;
-            } else {
-                return false;
-            }
+        } else {
+            return false;
+
         }
     }
 
-    private static int scanIntMonth(){
+    private static int scanIntMonth() {
         Scanner in = new Scanner(System.in);
         int number = 0;
 
         while (!(number >= 1 && number <= 12)) {
             System.out.print("Введите месяц: ");
-            while (!in.hasNextInt() ) {
+            while (!in.hasNextInt()) {
                 in.next();
                 System.out.println("Некорректный ввод!");
                 System.out.print("Введите месяц: ");
@@ -129,13 +123,14 @@ public class Task3 {
         }
         return number;
     }
-    private static int scanIntYear(){
+
+    private static int scanIntYear() {
         Scanner in = new Scanner(System.in);
         int number = 0;
 
         while (!(number >= 1000 && number <= 3000)) {
             System.out.print("Введите год: ");
-            while (!in.hasNextInt() ) {
+            while (!in.hasNextInt()) {
                 in.next();
                 System.out.print("Введите год: ");
             }
