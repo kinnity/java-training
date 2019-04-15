@@ -14,6 +14,17 @@ public class Part1Branching {
         task08();
         task09();
         task10();
+        task11();
+        task12();
+        task13();
+        task14();
+        task15();
+        task16();
+        task17();
+        task18();
+        task19();
+        task20();
+        task21();
 
     }
 
@@ -173,4 +184,253 @@ public class Part1Branching {
 
         System.out.println();
     }
+    private static void task11(){
+        System.out.println("11. Составить программу, которая определит площадь какого треугольника больше.");
+
+        int a1 = 4;
+        int b1 = 4;
+        int c1 = 4;
+        int a2 = 2;
+        int b2 = 2;
+        int c2 = 2;
+
+        int p1 = (a1 + b1 + c1) / 2;
+        int p2 = (a2 + b2 + c2) / 2;
+
+        double s1 = Math.sqrt(p1 * (p1 - a1) * (p1 - b1) * (p1 - c1));
+        double s2 = Math.sqrt(p2 * (p2 - a2) * (p2 - b2) * (p2 - c2));
+
+        if (s1 < s2) {
+            System.out.println("Площадь треугольника 1 меньше площади треугольника 2");
+        } else if (s1 == s2){
+            System.out.println("Площади треугольников 1 и 2 равны");
+        } else {
+            System.out.println("Площадь треуголька 2 меньше площади треугольника 1");
+        }
+
+        System.out.println();
+    }
+    private static void task12(){
+        System.out.println("12. Даны три действительных числа. Возвести в квадрат те из них, значения которых " +
+                "неотрицательны, и в четвертую степень — отрицательные.");
+
+        double number1 = 2.0;
+        double number2 = - 1.2;
+        double number3 = 0.0;
+
+        System.out.println("Числа: " + number1 + ", " + number2 + ", " + number3);
+
+        if (number1 >= 0) {
+            number1 = number1 * number1;
+        } else {
+            number1 = Math.pow(number1, 4);
+        }
+
+        if (number2 >= 0) {
+            number2 = number2 * number2;
+        } else {
+            number2 = Math.pow(number2, 4);
+        }
+
+        if (number3 >= 0) {
+            number3 = number3 * number3;
+        } else {
+            number3 = Math.pow(number3, 4);
+        }
+        System.out.println("Новые значения: " + number1 + ", " + number2 + ", " + number3);
+
+        System.out.println();
+    }
+    private static void task13(){
+        System.out.println("13. Даны две точки А(х1, у1) и В(х2, у2). Составить алгоритм, определяющий, которая из " +
+                "точек находится ближе к началу координат.");
+
+        double x1 = 2.0;
+        double y1 = - 1.2;
+        double x2 = 0.0;
+        double y2 = 1.0;
+
+        double length1 = Math.sqrt(x1 * x1 + y1 * y1);
+        double length2 = Math.sqrt(x2 * x2 + y2 * y2);
+
+        if (length1 < length2) {
+            System.out.println("Точка (" + x1 + ", " + y1 + ") ближе к началу координат, чем точка (" + x2 + ", " + y2 + ")");
+        } else if (length1 == length2){
+            System.out.println("Точка (" + x1 + ", " + y1 + ") на таком же растоянии от начала координат как точка (" + x2 + ", " + y2 + ")");
+        } else {
+            System.out.println("Точка (" + x1 + ", " + y1 + ") дальше от начала координат, чем точка (" + x2 + ", " + y2 + ")");
+        }
+
+        System.out.println();
+    }
+    private static void task14(){
+        System.out.println("14. Даны два угла треугольника (в градусах). Определить, существует ли такой " +
+                "треугольник, и если да, то будет ли он прямоугольным.");
+
+        int corner1 = 60;
+        int corner2 = 30;
+
+        int corner3 = 180 - corner1 - corner2;
+
+        if (corner1 > 0 && corner2 > 0 && corner3 > 0) {
+            System.out.println("Треугольник существует");
+            if (corner1 == 90 || corner2 == 90 || corner3 == 90) {
+                System.out.println("Треугольник прямоугольный");
+            }
+        } else {
+            System.out.println("Треугольник не существует");
+        }
+
+        System.out.println();
+    }
+    private static void task15(){
+        System.out.println("15. Даны действительные числа х и у, не равные друг другу. Меньшее из этих двух чисел " +
+                "заменить половиной их суммы, а большее — их удвоенным произведением.");
+
+        double x = 2.0;
+        double y = 3.3;
+        double newX = 0.0;
+        double newY = 0.0;
+
+        if (x < y) {
+            newX = (x + y) / 2;
+            newY = 2 * x * y;
+        } else {
+            newY = (x + y) / 2;
+            newX = 2 * x * y;
+        }
+        System.out.println("Для чисел " + x + " и " + y + " новые значения: " + newX + " и " + newY);
+        System.out.println();
+    }
+    private static void task16(){
+        System.out.println("16. На плоскости ХОY задана своими координатами точка А. Указать, где она расположена " +
+                "(на какой оси или в каком координатном угле).");
+
+        double x = 3.0;
+        double y = -5.0;
+
+        if (x > 0 && y > 0) {
+            System.out.println("Точка (" + x + ", " + y + ") находится в 1 четверти");
+        } else if (x < 0 && y > 0) {
+            System.out.println("Точка (" + x + ", " + y + ") находится во 2 четверти");
+        } else if (x < 0 && y < 0) {
+            System.out.println("Точка (" + x + ", " + y + ") находится в 3 четверти");
+        } else if (x > 0 && y < 0){
+            System.out.println("Точка (" + x + ", " + y + ") находится в 4 четверти");
+        } else if (x == 0 && y != 0){
+            System.out.println("Точка (" + x + ", " + y + ") находится на оси y");
+        } else if (x != 0 && y == 0){
+            System.out.println("Точка (" + x + ", " + y + ") находится на оси x");
+        } else if (x == 0 && y == 0){
+            System.out.println("Точка (" + x + ", " + y + ") находится в начале координат");
+        }
+
+        System.out.println();
+    }
+    private static void task17(){
+        System.out.println("17. Даны целые числа m, n. Если числа не равны, то заменить каждое из них одним и тем " +
+                "же числом, равным большему из исходных, а если равны, то заменить числа нулями.");
+
+        int m = 3;
+        int n = 6;
+        System.out.println("Исходные числа: " + m + ", " + n);
+
+        if (m != n) {
+            if (m > n) {
+                n = m;
+            } else {
+                m = n;
+            }
+        } else {
+            m = 0;
+            n = 0;
+        }
+
+        System.out.println("Полученные числа: " + m + ", " + n);
+        System.out.println();
+    }
+    private static void task18(){
+        System.out.println("18. Подсчитать количество отрицательных среди чисел а, b, с");
+
+        int a = 3;
+        int b = 6;
+        int c = -3;
+        int count = 0;
+
+        if (a < 0) {
+            count++;
+        }
+        if (b < 0) {
+            count++;
+        }
+        if (c < 0) {
+            count++;
+        }
+
+        System.out.println("Среди чисел " + a + ", " + b + ", " + c + " количество отрицательных: " + count);
+        System.out.println();
+    }
+    private static void task19(){
+        System.out.println("19. Подсчитать количество положительных среди чисел а, b, с.");
+
+        int a = 3;
+        int b = 6;
+        int c = -3;
+        int count = 0;
+
+        if (a > 0) {
+            count++;
+        }
+        if (b > 0) {
+            count++;
+        }
+        if (c > 0) {
+            count++;
+        }
+
+        System.out.println("Среди чисел " + a + ", " + b + ", " + c + " количество положительных: " + count);
+        System.out.println();
+    }
+    private static void task20(){
+        System.out.println("20. Определить, делителем каких чисел а, b, с является число k.");
+
+        int a = 3;
+        int b = 6;
+        int c = -4;
+        int k = 2;
+
+        if (a % k == 0) {
+            System.out.println("Число " + k + " является делителем числа " + a);
+        }
+        if (b % k == 0) {
+            System.out.println("Число " + k + " является делителем числа " + b);
+        }
+        if (c % k == 0) {
+            System.out.println("Число " + k + " является делителем числа " + c);
+        }
+
+        System.out.println();
+    }
+    private static void task21(){
+        System.out.println("21. Программа — льстец. На экране высвечивается вопрос «Кто ты: мальчик или девочка? " +
+                "Введи Д или М». В зависимости от ответа на экране должен появиться текст «Мне нравятся " +
+                "девочки!» или «Мне нравятся мальчики!».");
+
+        char answer = 'О';
+        System.out.println("Кто ты: мальчик или девочка? Введи Д или М");
+        System.out.println(answer);
+
+        switch (answer) {
+            case 'Д':
+                System.out.println("Мне нравятся девочки!");
+                break;
+            case 'М':
+                System.out.println("Мне нравятся мальчики!");
+                break;
+            default:
+                System.out.println("Неверное значение!");
+        }
+        System.out.println();
+    }
+
 }
